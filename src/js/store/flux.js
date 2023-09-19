@@ -7,17 +7,17 @@ const getState = ({ getStore, getActions, setStore }) => {
             agendaData: [] // Initialize agendaData in the store
         },
         actions: {
-            createAgenda: () =>{
+            newContact: (name,email,address,phone) =>{
                 fetch(baseUrl,{
                     method:"POST",
-                    headers:{"content-type":"aplication/json"},
+                    headers:{"content-type":"application/json"},
                     body:JSON.stringify(
                         {
-                        "full_name": "Dave Bradley",
-                        "email": "dave@gmail.com",
+                        "full_name": name,
+                        "email": email,
                         "agenda_slug": "Marcello-agenda",
-                        "address":"47568 NW 34ST, 33434 FL, USA",
-                        "phone":"7864445566"
+                        "address":address,
+                        "phone":phone
                     })
                 })
             },
