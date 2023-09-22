@@ -34,7 +34,11 @@ const [deleteContactId, setDeleteContactId] = useState (0);
 					</ul>
 				</div>
 			</div>
-			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} />
+			<Modal
+			show={state.showModal} 
+			onClose={() => setState({ showModal: false })} 
+			id={deleteContactId}
+			/>
 		</div>
 	);
 };

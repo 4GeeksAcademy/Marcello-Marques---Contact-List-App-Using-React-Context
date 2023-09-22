@@ -28,6 +28,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch ((error)=>{
                      console.error(`Error fetching data for: ${error.message}`);
                     }) 
+                },
+                deleteContact: (id) =>{
+                    fetch(baseUrl + id, {
+                        method: "DELETE",
+                       })                    
+                    .then((response)=>response.json());
                 }
         },
     };
