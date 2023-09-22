@@ -18,7 +18,7 @@ console.log(props.data.email, "Props");
 						<Link className="btn" to="/add">
 						<i className="fas fa-pencil-alt mr-3" />
 						</Link>
-						<button className="btn" onClick={() => props.onDelete()}>
+						<button className="btn" onClick={() => props.onDelete(props.data.id)}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>

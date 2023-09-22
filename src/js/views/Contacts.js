@@ -25,7 +25,9 @@ export const Contacts = () => {
 							console.log(item, "Item");
 							return(
 								<div>
-									<ContactCard data={item}onDelete={() => setState({ showModal: true })} />
+									<ContactCard data={item}onDelete={(id) => {
+										console.log(id, "ID")
+										 setState({ showModal: true })}} />
 								</div>
 							)
 						}):"No contact"}
