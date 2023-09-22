@@ -10,7 +10,7 @@ export const Contacts = () => {
 	const [state, setState] = useState({
 	showModal: false
 	});
-
+const [deleteContactId, setDeleteContactId] = useState (0);
 	return (
 		<div className="container">
 			<div>
@@ -26,7 +26,7 @@ export const Contacts = () => {
 							return(
 								<div>
 									<ContactCard data={item}onDelete={(id) => {
-										console.log(id, "ID")
+										setDeleteContactId(id)
 										 setState({ showModal: true })}} />
 								</div>
 							)
