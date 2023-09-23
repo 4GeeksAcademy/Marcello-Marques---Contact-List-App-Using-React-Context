@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+
 export const ContactCard = props => {
+	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({
 		//initialize state here
 	});
@@ -15,7 +18,14 @@ console.log(props.data.email, "Props");
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<Link className="btn" to="/add">
+						<Link 
+						onClick = {
+							()=> {
+								actions.getUpdateContact(props.data)
+							}
+						}
+						className="btn" 
+						to="/add">
 						<i className="fas fa-pencil-alt mr-3" />
 						</Link>
 						<button className="btn" onClick={() => props.onDelete(props.data.id)}>

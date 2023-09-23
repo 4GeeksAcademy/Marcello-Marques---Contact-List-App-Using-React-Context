@@ -11,6 +11,8 @@ export const Contacts = () => {
 	showModal: false
 	});
 const [deleteContactId, setDeleteContactId] = useState (0);
+const [upDateContact, setUpDateContact] = useState ({});
+const [upOrDelete, setUpOrDelete] = useState("")
 	return (
 		<div className="container">
 			<div>
@@ -25,9 +27,22 @@ const [deleteContactId, setDeleteContactId] = useState (0);
 							console.log(item, "Item");
 							return(
 								<div>
-									<ContactCard data={item}onDelete={(id) => {
+									<ContactCard 
+									data={item}
+									onDelete={(id) => {
+										setUpOrDelete("Delete")
 										setDeleteContactId(id)
-										 setState({ showModal: true })}} />
+										 setState({ showModal: true })
+										}
+									}																				
+									upDateContact={(data) =>{
+										setUpOrDelete("Update")
+										setUpDateContact(data)
+										setState({ showModal: true })										
+									}
+								}
+
+								 />
 								</div>
 							)
 						}):"No contact"}
@@ -38,6 +53,8 @@ const [deleteContactId, setDeleteContactId] = useState (0);
 			show={state.showModal} 
 			onClose={() => setState({ showModal: false })} 
 			id={deleteContactId}
+			data={upDateContact}
+			upOrDelete={upOrDelete}
 			/>
 		</div>
 	);

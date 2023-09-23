@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             contact: [],
-            agendaData: [] // Initialize agendaData in the store
+                upDateContactInfo: [] // Initialize agendaData in the store
         },
         actions: {
             newContact: (name,email,address,phone) =>{
@@ -34,7 +34,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                         method: "DELETE",
                        })                    
                     .then((response)=>response.json());
-                }
+                },
+            getUpdateContact: (upDateData) =>{
+                    setStore({ upDateContactInfo: upDateData })
+            }
         },
     };
 };
