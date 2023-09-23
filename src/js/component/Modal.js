@@ -39,14 +39,7 @@ export const Modal = props => {
 							Oh no!
 						</button>
 						<button
-						onClick={()=> {
-							if (props.upOrDelete == "Delete"){
-								actions.deleteContact(props.id)
-							}
-							else if (props.upOrDelete == "Update"){
-								actions.upDateContact(props.data)
-}
-							}
+						onClick={()=> { actions.deleteContact(props.id) }
 						} 
 						type="button" 
 						className="btn btn-secondary" 
