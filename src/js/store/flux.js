@@ -4,7 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             contact: [],
-                upDateContactInfo: [] // Initialize agendaData in the store
+                upDateContactInfo: [],
+                    upOrDelete:[] // Initialize agendaData in the store
         },
         actions: {
             newContact: (name,email,address,phone) =>{
@@ -37,7 +38,25 @@ const getState = ({ getStore, getActions, setStore }) => {
                 },
             getUpdateContact: (upDateData) =>{
                     setStore({ upDateContactInfo: upDateData })
-            }
+            },
+            upOrDelete: (method) =>{
+                    setStore({ upOrDelete: method })
+            },
+            upDateContactInfo: (name,email,address,phone,id) =>{
+                console.log("TEST2")
+                fetch(baseUrl+id,{
+                    method:"PUT",
+                    headers:{"content-type":"application/json"},
+                    body:JSON.stringify(
+                        {
+                        "full_name": name,
+                        "email": email,
+                        "agenda_slug": "Marcello-agenda",
+                        "address":address,
+                        "phone":phone
+                    })
+                })
+            },
         },
     };
 };

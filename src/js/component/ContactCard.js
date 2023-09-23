@@ -22,6 +22,7 @@ console.log(props.data.email, "Props");
 						onClick = {
 							()=> {
 								actions.getUpdateContact(props.data)
+								actions.upOrDelete("update")
 							}
 						}
 						className="btn" 

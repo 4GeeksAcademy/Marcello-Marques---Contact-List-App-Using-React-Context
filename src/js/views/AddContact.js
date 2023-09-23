@@ -5,10 +5,10 @@ import { Context } from "../store/appContext";
 
 export const AddContact = () => {
 	const { store, actions } = useContext(Context);
-	const [name,setName]=useState("")
-	const [email,setEmail]=useState("")
-	const [phone,setPhone]=useState("")
-	const [address,setAddress]=useState("")
+	const [name,setName]=useState(store.upDateContactInfo.full_name)
+	const [email,setEmail]=useState(store.upDateContactInfo.email)
+	const [phone,setPhone]=useState(store.upDateContactInfo.phone)
+	const [address,setAddress]=useState(store.upDateContactInfo.address)
 	console.log(store,"STORE ADD CONTACT")
 	return (
 		<div className="container">
@@ -21,9 +21,7 @@ export const AddContact = () => {
 						type="text" 
 						className="form-control" 
 						placeholder="Full Name" 
-						value={
-							store.upDateContactInfo.full_name
-						}
+						value={name}
 						onChange={(event)=> setName (event.target.value)}
 						/>
 					</div>
@@ -34,7 +32,7 @@ export const AddContact = () => {
 						className="form-control" 
 						placeholder="Enter email" 
 						value={
-							store.upDateContactInfo.email
+							email
 						}
 						onChange={(event)=> setEmail (event.target.value)}
 						/>
@@ -46,7 +44,7 @@ export const AddContact = () => {
 						className="form-control" 
 						placeholder="Enter phone"
 						value={
-							store.upDateContactInfo.phone
+							phone
 						} 
 						onChange={(event)=> setPhone (event.target.value)}
 						/>
@@ -58,7 +56,7 @@ export const AddContact = () => {
 						className="form-control" 
 						placeholder="Enter address" 
 						value={
-							store.upDateContactInfo.address
+							address
 						}
 						onChange={(event)=> setAddress (event.target.value)}
 						/>
@@ -66,8 +64,15 @@ export const AddContact = () => {
 
 					<button 
 					onClick={()=>{
-						actions.newContact(name,email,address,phone)
-						actions.getContacts()
+						console.log(store, "OnClick-Store")
+						if (store.upOrDelete == "create"){
+							actions.newContact(name,email,address,phone)
+							actions.getContacts()	
+						}
+						else if (store.upOrDelete == "update"){
+							actions.upDateContactInfo(name,email,address,phone,store.upDateContactInfo.id)
+							actions.getContacts()	
+						}
 					} 
 				}
 					type="button"

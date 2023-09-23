@@ -17,7 +17,10 @@ const [upOrDelete, setUpOrDelete] = useState("")
 		<div className="container">
 			<div>
 				<p className="text-right my-3">
-					<Link className="btn btn-success" to="/add">
+					<Link 
+					onClick={actions.upOrDelete("create")}
+					className="btn btn-success"
+					to="/add">
 						Add new contact
 					</Link>
 				</p>
