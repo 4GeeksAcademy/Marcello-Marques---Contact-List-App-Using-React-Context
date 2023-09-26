@@ -9,7 +9,6 @@ export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
-console.log(props.data.email, "Props");
 	return (
 		<li className="list-group-item">
 			<div className="row w-100">

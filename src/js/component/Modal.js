@@ -8,7 +8,6 @@ export const Modal = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
-	console.log(props.id,"Modal-ID")
 	return (
 		<div className="modal" tabIndex="-1" role="dialog" style={{ display: props.show ? "inline-block" : "none" }}>
 			<div className="modal-dialog" role="document">
@@ -17,7 +16,7 @@ export const Modal = props => {
 						<h5 className="modal-title">Are you sure?</h5>
 						{props.onClose ? (
 							<button
-								onClick={() => props.onClose()}
+							onClick={() => props.onClose()}
 								type="button"
 								className="close"
 								data-dismiss="modal"
@@ -39,8 +38,10 @@ export const Modal = props => {
 							Oh no!
 						</button>
 						<button
-						onClick={()=> { actions.deleteContact(props.id) }
-						} 
+						onClick={()=> { 
+							actions.deleteContact(props.id)
+							props.onClose() } 
+						}				
 						type="button" 
 						className="btn btn-secondary" 
 						data-dismiss="modal">

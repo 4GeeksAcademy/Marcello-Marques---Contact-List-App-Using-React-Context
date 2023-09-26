@@ -9,7 +9,6 @@ export const AddContact = () => {
 	const [email,setEmail]=useState(store.upDateContactInfo.email)
 	const [phone,setPhone]=useState(store.upDateContactInfo.phone)
 	const [address,setAddress]=useState(store.upDateContactInfo.address)
-	console.log(store,"STORE ADD CONTACT")
 	return (
 		<div className="container">
 			<div>
@@ -64,7 +63,6 @@ export const AddContact = () => {
 
 					<button 
 					onClick={()=>{
-						console.log(store, "OnClick-Store")
 						if (store.upOrDelete == "create"){
 							actions.newContact(name,email,address,phone)
 							actions.getContacts()	
@@ -73,13 +71,15 @@ export const AddContact = () => {
 							actions.upDateContactInfo(name,email,address,phone,store.upDateContactInfo.id)
 							actions.getContacts()	
 						}
+						
 					} 
 				}
 					type="button"
 					className="btn btn-primary form-control">
 						save
 					</button>
-					<Link className="mt-3 w-100 text-center" to="/">
+					<Link 
+					className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>
 				</form>

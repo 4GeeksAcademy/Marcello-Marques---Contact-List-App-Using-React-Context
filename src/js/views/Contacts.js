@@ -7,18 +7,15 @@ import { Modal } from "../component/Modal";
 export const Contacts = () => {
 	const { store, actions } = useContext(Context);
 
-	const [state, setState] = useState({
-	showModal: false
-	});
+	const [state, setState] = useState(false);
 const [deleteContactId, setDeleteContactId] = useState (0);
 const [upDateContact, setUpDateContact] = useState ({});
-
 	return (
 		<div className="container">
 			<div>
 				<p className="text-right my-3">
 					<Link 
-					onClick={actions.upOrDelete("create")}
+					onClick={(event) => actions.upOrDelete("create")}
 					className="btn btn-success"
 					to="/add">
 						Add new contact
@@ -33,13 +30,13 @@ const [upDateContact, setUpDateContact] = useState ({});
 									data={item}
 									onDelete={(id) => {
 									  	setDeleteContactId(id)
-										setState({ showModal: true })
+										setState(true)
 										}
 									}																				
 									upDateContact={(data) =>{
 										
 										setUpDateContact(data)
-										setState({ showModal: true })										
+										setState(true)										
 									}
 								}
 
@@ -51,8 +48,8 @@ const [upDateContact, setUpDateContact] = useState ({});
 				</div>
 			</div>
 			<Modal
-			show={state.showModal} 
-			onClose={() => setState({ showModal: false })} 
+			show={state} 
+			onClose={() => setState(false)} 
 			id={deleteContactId}
 			
 			

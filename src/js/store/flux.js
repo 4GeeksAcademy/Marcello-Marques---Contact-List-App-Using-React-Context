@@ -43,7 +43,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     setStore({ upOrDelete: method })
             },
             upDateContactInfo: (name,email,address,phone,id) =>{
-                console.log("TEST2")
                 fetch(baseUrl+id,{
                     method:"PUT",
                     headers:{"content-type":"application/json"},
