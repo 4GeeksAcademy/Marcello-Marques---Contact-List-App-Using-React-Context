@@ -15,7 +15,9 @@ const [upDateContact, setUpDateContact] = useState ({});
 			<div>
 				<p className="text-right my-3">
 					<Link 
-					onClick={(event) => actions.upOrDelete("create")}
+					onClick={(event) =>{
+						actions.getUpdateContact({'full_name':'','email':'','phone':'','address':'' })						
+						actions.upOrDelete("create")}}
 					className="btn btn-success"
 					to="/add">
 						Add new contact

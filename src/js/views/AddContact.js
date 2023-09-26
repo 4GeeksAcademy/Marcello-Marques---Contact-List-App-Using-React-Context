@@ -71,7 +71,6 @@ export const AddContact = () => {
 							actions.upDateContactInfo(name,email,address,phone,store.upDateContactInfo.id)
 							actions.getContacts()	
 						}
-						
 					} 
 				}
 					type="button"
